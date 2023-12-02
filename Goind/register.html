@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--CSS Link-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--Bootstrap Link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <script>
+
+       //Empty Validation
+       function validation(){
+        var name=document.getElementById("name").value
+        var contact=document.getElementById("contact").value
+        var email=document.getElementById("email").value
+        var pass=document.getElementById("pass").value
+
+        if(name==""){
+            document.getElementById("sp1").innerHTML="Please Enter Your Name"
+        }
+        if(contact==""){
+            document.getElementById("sp2").innerHTML="Please enter Your Contact Number"
+        }
+        if(email==""){
+            document.getElementById("sp3").innerHTML="Pleae Enter your Email Id"
+        }
+        if(pass==""){
+            document.getElementById("sp4").innerHTML="Please Enter Your Password"
+        }
+       }
+       
+
+       //Show Password
+       function check(){
+        var a=document.getElementById("pass")
+        if(a.type=="password"){
+            a.type="type"
+        }
+        else{
+            a.type="password"
+        }
+       }
+
+       function check2(){
+        var b=document.getElementById("Cpass")
+        if(b.type=="password"){
+            b.type="type"
+        }
+        else{
+            b.type="password"
+        }
+       }
+       
+       //Confirm Psssword
+       function Confirmpass(){
+        var pass1=document.getElementById("pass").value
+        var pass2=document.getElementById("Cpass").value
+
+        if(pass1!=pass2){
+            document.getElementById("sp5").innerHTML="Please Enter Same Password"
+        }
+       }
+
+       //Contact Number Validation
+
+       function contactvalidation(){
+
+        var contact=document.getElementById("contact").value
+
+        if(contact.length<7 || contact.length>10){
+            document.getElementById("sp2").innerHTML="Contact number contain 10 digit or more than 7 digit"
+        }
+        if(isNaN(contact)){
+            document.getElementById("sp2").innerHTML="Contact number cannot contain alphabets"
+        }
+       }
+    </script>
+    <style>
+        #sp1 ,#sp2, #sp3, #sp4, #sp5{
+            color: red;
+        }
+       
+    </style>
+</head>
+<body>
+    
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+        <a href="" class="logo" ><img src="images/logo.png" alt=""></a>
+        <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false"  aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+     <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="index.html" class="nav-link">HOME</a></li>
+            <li class="nav-item"><a href="SearchJobs.html" class="nav-link">SEARCH JOBS</a></li>
+            <li class="nav-item"><a href="jobs.html" class="nav-link">JOBS</a></li>
+            <li class="nav-item"><a href="Services.html" class="nav-link">SERVICES</a></li>
+            <li class="nav-item"><a href="loginPage.html" class="nav-link">LOGIN HERE</a></li>
+        </ul>
+      </div>
+     
+    </div>
+    </nav>
+    <!--Navbar End-->
+    <br><br>
+    <h2 class="text-center pt-4" style="color: grey;" >Registration Form</h2>
+    <div class="background">
+    <section id="loginform" class="container">
+      
+        <form action="">
+            <div class="mb-3">
+                <label for="" class="form-label">Name</label>
+                <input type="text" name=""  id="name" class="form-control"><span id="sp1"></span>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Contact</label>
+                <input type="text" name=""  id="contact" class="form-control"><span id="sp2"></span>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Email Address</label>
+                <input type="email" name=""  id="email" class="form-control"><span id="sp3"></span>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Password</label>
+                <input type="password" name="" id="pass" class="form-control"><span id="sp4"></span>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Confirm Password</label>
+                <input type="password" name="" id="Cpass" class="form-control"><span id="sp5"></span>
+            </div>
+            
+            <div class="mb-3">
+                <label for="" class="form-label">Show Password</label>
+                <input type="checkbox" onclick="check();check2()">
+            </div>
+            
+            <button  type="button" style="background-color:#00aeef;color: white;" class="btn" onclick="validation(); Confirmpass();contactvalidation()" >Submit</button>
+        </form>
+    </section>
+  </div>
+    <br><br>
+    <!--Footer Section Start-->
+    <div class="footer py-5">
+        <center>
+        <div class="container">
+            <h1 class="p-2">Subscribe Now</h1>
+            <p class="p-2">There are many variations of passages of Lorem Ipsum available, but the majority have </p>
+          <div id="SubscribeNow">
+            <input type="email" name="" id="EnterEmail" placeholder="Enter Your Email" class="form-control mt-4" >
+            <button type="button" class="btn" id="Subscribebtn">Subscribe</button>
+           </div>
+           <br>
+        </div>
+       </center>
+    </div>
+   <!--Footer Section End-->
+
+   <!--Copyright Section Start-->
+   <div class="copyright_section">
+    <div class="container py-4">
+        <div class="row text-center">
+            <div class="col-md-6">
+                <p>Copyright 2020 All Right Reserved By. Free html Templates</p>
+            </div>
+            <div class="col-md-6">
+                <p>Cookies, Privacy and Terms</p>
+            </div>
+        </div>
+    </div>
+   </div>
+   
+    
+</body>
+</html>
